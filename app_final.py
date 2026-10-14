@@ -19,3 +19,15 @@ def health():
 @app.get("/version")
 def version():
     return {"version": APP_VERSION}
+
+
+@app.get("/convert/fahrenheit")
+def celsius_to_fahrenheit(celsius: float):
+    fahrenheit = celsius * 9 / 5 + 32
+    return {"celsius": celsius, "fahrenheit": fahrenheit}
+
+
+@app.get("/convert/kelvin")
+def celsius_to_kelvin(celsius: float):
+    kelvin = celsius + 273.15
+    return {"celsius": celsius, "kelvin": kelvin}
